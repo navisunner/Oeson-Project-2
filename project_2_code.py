@@ -32,7 +32,7 @@ plt.gca().spines[['top', 'right',]].set_visible(False)
 sns.set(style="whitegrid")
 plt.figure(figsize=(10, 6))
 
-# Assuming the newly created 'year' column contains the years
+
 sns.countplot(x='work_year', data=df)
 
 plt.title('Frequency of Each Year')
@@ -64,10 +64,10 @@ job_title_counts = df['job_title'].value_counts().reset_index()
 # Renaming columns for clarity
 job_title_counts.columns = ['Job Title', 'Frequency']
 
-# Sort the data by frequency for better visualization
+# Sort the data by frequency
 job_title_counts = job_title_counts.sort_values(by='Frequency', ascending=True)
 
-# Plotting with Seaborn
+# Plotting 
 sns.set(style="whitegrid")
 plt.figure(figsize=(30, 24))  # Adjust the size as needed
 
@@ -81,16 +81,16 @@ plt.show()
 
 job_title_counts = df['job_title'].value_counts().reset_index()
 
-# Renaming columns for clarity
+
 job_title_counts.columns = ['Job Title', 'Frequency']
 
 # Select the top 10 job titles by frequency
 top_10_job_titles = job_title_counts.head(10)
 
-# Sort the data by frequency for better visualization
+# Sort the data by frequency
 top_10_job_titles = top_10_job_titles.sort_values(by='Frequency', ascending=True)
 
-# Plotting with Seaborn
+# Plotting
 sns.set(style="whitegrid")
 plt.figure(figsize=(10, 8))  # Adjust the size as needed
 
@@ -105,10 +105,10 @@ plt.show()
 # Calculate average salaries by job titles
 average_salary_by_title = df.groupby('job_title')['salary_in_usd'].mean().reset_index()
 
-# Sort the data by average salary for better visualization
+# Sort the data by average salary
 average_salary_by_title = average_salary_by_title.sort_values(by='salary_in_usd', ascending=True)
 
-# Plotting with Seaborn
+# Plotting
 sns.set(style="whitegrid")
 plt.figure(figsize=(36, 24))
 
@@ -122,18 +122,18 @@ plt.show()
 
 average_salary_by_title = df.groupby('job_title')['salary_in_usd'].mean().reset_index()
 
-# Sort the data by average salary for better visualization
+# Sort the data by average salary
 average_salary_by_title = average_salary_by_title.sort_values(by='salary_in_usd', ascending=True)
 
-# Select the top and bottom N job titles
-top_n = 5  # Change this value based on your preference
+
+top_n = 5  
 top_job_titles = average_salary_by_title.tail(top_n)
 bottom_job_titles = average_salary_by_title.head(top_n)
 
 # Combine the top and bottom job titles for display
 selected_job_titles = pd.concat([top_job_titles, bottom_job_titles])
 
-# Plotting with Seaborn
+# Plotting
 sns.set(style="whitegrid")
 plt.figure(figsize=(12, 8))
 
@@ -147,10 +147,10 @@ plt.show()
 
 most_common_job_titles = df['job_title'].value_counts().head(5).index
 
-# Step 2: Calculate average salaries for the most common job titles
+# Calculate average salaries for the most common job titles
 average_salary_common_titles = df[df['job_title'].isin(most_common_job_titles)].groupby('job_title')['salary_in_usd'].mean().reset_index()
 
-# Step 3: Plotting with Seaborn
+# Plotting
 sns.set(style="whitegrid")
 plt.figure(figsize=(12, 8))
 
@@ -167,7 +167,7 @@ job_category_distribution = df['job_category'].value_counts()
 # Define a custom color palette
 custom_colors = sns.color_palette("Set3", n_colors=len(job_category_distribution))
 
-# Plotting with a pie chart using the custom colors
+# Plotting with a pie chart
 plt.figure(figsize=(20, 20))
 plt.pie(job_category_distribution, labels=job_category_distribution.index, autopct='%1.1f%%', colors=custom_colors)
 plt.title('Distribution of Job Categories')
@@ -175,7 +175,7 @@ plt.show()
 
 average_salary_by_category = df.groupby('job_category')['salary_in_usd'].mean().reset_index()
 
-# Plotting with Seaborn
+# Plotting 
 sns.set(style="whitegrid")
 plt.figure(figsize=(12, 8))
 
@@ -189,7 +189,7 @@ plt.show()
 
 average_salary_by_currency = df.groupby('salary_currency')['salary_in_usd'].mean().reset_index()
 
-# Plotting with Seaborn
+# Plotting 
 sns.set(style="whitegrid")
 plt.figure(figsize=(10, 6))
 
@@ -205,7 +205,7 @@ plt.show()
 average_salary_by_residence = df.groupby('employee_residence')['salary_in_usd'].mean().reset_index()
 average_salary_by_company_location = df.groupby('company_location')['salary_in_usd'].mean().reset_index()
 
-# Plotting with Seaborn
+# Plotting 
 sns.set(style="whitegrid")
 
 # Using grouped bar plots
